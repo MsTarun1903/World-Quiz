@@ -1,0 +1,18 @@
+const db = new pg.Client({
+    user:"postgres",
+    host:"localhost",
+    database:"World",
+    password:"Tarun@123",
+    port:5432,
+});
+
+db.connect();
+
+db.query("SELECT * FROM capitals", (err , res ){
+    if(err){
+        console.error("Error in executing the Query", err.stack);
+    }else{
+        quiz = res.rows
+    }
+    db.end();
+})
